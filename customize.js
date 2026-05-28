@@ -65,12 +65,24 @@ function scheduleEnhance() {
   });
 }
 
-function loadVocabularyExtras() {
-  if (document.querySelector('script[src*="vocab-extras.js"]')) return;
+function loadScriptOnce(src, marker) {
+  if (document.querySelector(`script[src*="${marker}"]`)) {
+    return Promise.resolve();
+  }
 
-  const script = document.createElement("script");
-  script.src = "vocab-extras.js?v=1";
-  document.body.append(script);
+  return new Promise((resolve, reject) => {
+    const script = document.createElement("script");
+    script.src = src;
+    script.onload = resolve;
+    script.onerror = reject;
+    document.body.append(script);
+  });
+}
+
+function loadVocabularyExtensions() {
+  loadScriptOnce("vocab-extras.js?v=1", "vocab-extras.js")
+    .then(() => loadScriptOnce("vocab-direction.js?v=1", "vocab-direction.js"))
+    .catch(() => {});
 }
 
 const practiceArea = document.querySelector("#app");
@@ -85,4 +97,4 @@ document.querySelector("#pathMode")?.addEventListener("click", scheduleEnhance);
 document.querySelector("#mistakesMode")?.addEventListener("click", scheduleEnhance);
 document.querySelector("#examMode")?.addEventListener("click", scheduleEnhance);
 
-window.addEventListener("load", loadVocabularyExtras);
+window.addEventListener("load", loadVocabularyExtensions);
