@@ -116,14 +116,147 @@
   font-weight: 760;
 }
 
-.vocab-question-panel .prompt {
+.vocab-question-panel .prompt,
+.practice-question-panel .prompt {
   font-size: 2.1rem;
+}
+
+.practice-section-panel {
+  display: block;
+}
+
+.exercise-subtype-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.exercise-subtype-card {
+  min-height: 94px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-strong);
+  color: var(--ink);
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+}
+
+.exercise-subtype-card strong,
+.exercise-subtype-card span {
+  display: block;
+}
+
+.exercise-subtype-card strong {
+  margin-bottom: 8px;
+  font-size: 0.98rem;
+}
+
+.exercise-subtype-card span {
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 750;
+}
+
+.practice-controls {
+  grid-template-columns: auto minmax(220px, 1fr) auto auto;
+}
+
+.practice-prompt {
+  white-space: normal;
+}
+
+.practice-tags,
+.practice-requirements {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 14px 0;
+}
+
+.practice-tags span,
+.practice-requirements span {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface-strong);
+  color: var(--muted);
+  padding: 6px 10px;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.practice-choice-grid {
+  margin-top: 18px;
+}
+
+.multi-blank-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.multi-blank-grid label {
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 850;
+  text-transform: uppercase;
+}
+
+.multi-blank-grid .answer-input,
+.guided-writing-tool .answer-input {
+  margin-top: 6px;
+  width: 100%;
+}
+
+.multi-blank-grid .primary-button {
+  align-self: end;
+}
+
+.word-order-tool,
+.guided-writing-tool {
+  margin-top: 18px;
+}
+
+.word-order-answer {
+  min-height: 54px;
+  border: 1px dashed var(--line-strong, var(--line));
+  border-radius: var(--radius);
+  background: var(--surface-strong);
+  padding: 14px;
+  color: var(--ink);
+  font-weight: 850;
+}
+
+.word-bank {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.word-bank .chip-button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.practice-textarea {
+  min-height: 130px;
+  resize: vertical;
+  line-height: 1.45;
 }
 
 @media (max-width: 980px) {
   .vocab-intro,
-  .vocab-controls {
+  .vocab-controls,
+  .practice-controls {
     grid-template-columns: 1fr;
+  }
+
+  .exercise-subtype-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -143,7 +276,9 @@
     padding: 16px;
   }
 
-  .vocab-counts {
+  .vocab-counts,
+  .exercise-subtype-grid,
+  .multi-blank-grid {
     grid-template-columns: 1fr;
   }
 
@@ -151,7 +286,8 @@
     width: 100%;
   }
 
-  .vocab-question-panel .prompt {
+  .vocab-question-panel .prompt,
+  .practice-question-panel .prompt {
     font-size: 1.6rem;
   }
 }
