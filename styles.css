@@ -104,14 +104,14 @@ button:disabled {
 
 .stat-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 10px;
   margin: 28px 0;
 }
 
 .stat-tile {
   min-height: 78px;
-  padding: 14px;
+  padding: 14px 10px;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: var(--surface-strong);
@@ -354,7 +354,7 @@ h1 {
 }
 
 .tool-panel h2,
-.tool-panel h3 {
+tool-panel h3 {
   margin-bottom: 10px;
 }
 
@@ -665,7 +665,7 @@ h1 {
   }
 
   .stat-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .mode-nav {
