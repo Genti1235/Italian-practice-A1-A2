@@ -1,0 +1,29 @@
+.tool-panel h3 {
+  margin-bottom: 10px;
+}
+
+.lesson-header-tools {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  min-width: min(460px, 50vw);
+}
+
+.unit-exit-button {
+  min-width: 76px;
+  white-space: nowrap;
+}
+
+@media (max-width: 680px) {
+  .lesson-header-tools {
+    align-items: stretch;
+    flex-direction: column;
+    min-width: 100%;
+    width: 100%;
+  }
+
+  .unit-exit-button {
+    width: 100%;
+  }
+}
