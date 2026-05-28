@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Italian A1/A2 Practice</title>
+    <meta
+      name="description"
+      content="A Duolingo-style Italian A1/A2 exam practice app with vocabulary, grammar, dialogues, and exam review."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Study overview">
+        <a class="brand" href="#top" aria-label="Italian A1 A2 Practice home">
+          <span class="brand-mark" aria-hidden="true">IT</span>
+          <span>
+            <strong>Italiano</strong>
+            <small>A1/A2 exam trainer</small>
+          </span>
+        </a>
+
+        <div class="stat-grid" aria-label="Progress statistics">
+          <div class="stat-tile">
+            <span id="xpStat">0</span>
+            <small>XP</small>
+          </div>
+          <div class="stat-tile">
+            <span id="streakStat">0</span>
+            <small>streak</small>
+          </div>
+          <div class="stat-tile">
+            <span id="heartsStat">5</span>
+            <small>hearts</small>
+          </div>
+          <div class="stat-tile">
+            <span id="doneStat">0%</span>
+            <small>done</small>
+          </div>
+        </div>
+
+        <nav class="mode-nav" aria-label="Practice modes">
+          <button class="mode-button active" id="pathMode" type="button">
+            <span aria-hidden="true">◎</span>
+            Path
+          </button>
+          <button class="mode-button" id="mistakesMode" type="button">
+            <span aria-hidden="true">!</span>
+            Mistakes
+          </button>
+          <button class="mode-button" id="examMode" type="button">
+            <span aria-hidden="true">✓</span>
+            Exam
+          </button>
+        </nav>
+      </aside>
+
+      <main id="top" class="main-stage" tabindex="-1">
+        <section class="topbar" aria-label="Current focus">
+          <div>
+            <p class="eyebrow" id="stageEyebrow">Personal exam path</p>
+            <h1 id="stageTitle">Italian A1/A2 practice</h1>
+          </div>
+          <button class="ghost-button" id="resetButton" type="button" title="Reset progress">
+            <span aria-hidden="true">↺</span>
+            Reset
+          </button>
+        </section>
+
+        <section id="app" class="practice-area" aria-live="polite"></section>
+      </main>
+    </div>
+
+    <template id="speakerIcon">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M4 9v6h4l5 4V5L8 9H4Z"></path>
+        <path d="M16 8.5a4 4 0 0 1 0 7"></path>
+        <path d="M18.5 6a7 7 0 0 1 0 12"></path>
+      </svg>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
