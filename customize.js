@@ -19,6 +19,15 @@ function unlockPracticePath() {
   });
 }
 
+function goToPath() {
+  if (typeof window.renderHome === "function") {
+    window.renderHome();
+  } else {
+    document.querySelector("#pathMode")?.click();
+  }
+  window.setTimeout(unlockPracticePath, 0);
+}
+
 function addExitButton() {
   const header = document.querySelector(".lesson-header");
   if (!header || header.querySelector(".unit-exit-button")) return;
@@ -32,12 +41,7 @@ function addExitButton() {
   exitButton.type = "button";
   exitButton.textContent = "Path";
   exitButton.title = "Leave this unit and return to the lesson path";
-  exitButton.addEventListener("click", () => {
-    if (typeof window.renderHome === "function") {
-      window.renderHome();
-    }
-    window.setTimeout(unlockPracticePath, 0);
-  });
+  exitButton.addEventListener("click", goToPath);
 
   tools.append(exitButton);
   if (progress) {
@@ -46,35 +50,29 @@ function addExitButton() {
   header.append(tools);
 }
 
-if (typeof window.renderHome === "function") {
-  const originalRenderHome = window.renderHome;
-  window.renderHome = function renderHomeUnlocked(...args) {
-    const result = originalRenderHome.apply(this, args);
-    unlockPracticePath();
-    return result;
-  };
+function enhanceCurrentScreen() {
+  unlockPracticePath();
+  addExitButton();
 }
 
-if (typeof window.renderQuestion === "function") {
-  const originalRenderQuestion = window.renderQuestion;
-  window.renderQuestion = function renderQuestionWithExit(...args) {
-    const result = originalRenderQuestion.apply(this, args);
-    addExitButton();
-    return result;
-  };
+let enhancePending = false;
+function scheduleEnhance() {
+  if (enhancePending) return;
+  enhancePending = true;
+  window.requestAnimationFrame(() => {
+    enhancePending = false;
+    enhanceCurrentScreen();
+  });
 }
 
-document.querySelector("#pathMode")?.addEventListener("click", () => {
-  window.setTimeout(unlockPracticePath, 0);
-});
+const practiceArea = document.querySelector("#app");
+if (practiceArea) {
+  enhanceCurrentScreen();
+  new MutationObserver(scheduleEnhance).observe(practiceArea, {
+    childList: true
+  });
+}
 
-document.querySelector("#mistakesMode")?.addEventListener("click", () => {
-  window.setTimeout(addExitButton, 0);
-});
-
-document.querySelector("#examMode")?.addEventListener("click", () => {
-  window.setTimeout(addExitButton, 0);
-});
-
-unlockPracticePath();
-addExitButton();
+document.querySelector("#pathMode")?.addEventListener("click", scheduleEnhance);
+document.querySelector("#mistakesMode")?.addEventListener("click", scheduleEnhance);
+document.querySelector("#examMode")?.addEventListener("click", scheduleEnhance);
