@@ -79,9 +79,11 @@ function loadScriptOnce(src, marker) {
   });
 }
 
-function loadVocabularyExtensions() {
+function loadPracticeExtensions() {
   loadScriptOnce("vocab-extras.js?v=1", "vocab-extras.js")
     .then(() => loadScriptOnce("vocab-direction.js?v=1", "vocab-direction.js"))
+    .then(() => loadScriptOnce("practice-data.js?v=1", "practice-data.js"))
+    .then(() => loadScriptOnce("practice-sections.js?v=1", "practice-sections.js"))
     .catch(() => {});
 }
 
@@ -97,4 +99,4 @@ document.querySelector("#pathMode")?.addEventListener("click", scheduleEnhance);
 document.querySelector("#mistakesMode")?.addEventListener("click", scheduleEnhance);
 document.querySelector("#examMode")?.addEventListener("click", scheduleEnhance);
 
-window.addEventListener("load", loadVocabularyExtensions);
+window.addEventListener("load", loadPracticeExtensions);
