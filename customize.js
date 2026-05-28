@@ -65,6 +65,14 @@ function scheduleEnhance() {
   });
 }
 
+function loadVocabularyExtras() {
+  if (document.querySelector('script[src*="vocab-extras.js"]')) return;
+
+  const script = document.createElement("script");
+  script.src = "vocab-extras.js?v=1";
+  document.body.append(script);
+}
+
 const practiceArea = document.querySelector("#app");
 if (practiceArea) {
   enhanceCurrentScreen();
@@ -76,3 +84,5 @@ if (practiceArea) {
 document.querySelector("#pathMode")?.addEventListener("click", scheduleEnhance);
 document.querySelector("#mistakesMode")?.addEventListener("click", scheduleEnhance);
 document.querySelector("#examMode")?.addEventListener("click", scheduleEnhance);
+
+window.addEventListener("load", loadVocabularyExtras);
