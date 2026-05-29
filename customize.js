@@ -65,6 +65,14 @@ function scheduleEnhance() {
   });
 }
 
+function loadStylesheetOnce(href, marker) {
+  if (document.querySelector(`link[href*="${marker}"]`)) return;
+  const link = document.createElement("link");
+  link.rel = "stylesheet";
+  link.href = href;
+  document.head.append(link);
+}
+
 function loadScriptOnce(src, marker) {
   if (document.querySelector(`script[src*="${marker}"]`)) {
     return Promise.resolve();
@@ -80,6 +88,7 @@ function loadScriptOnce(src, marker) {
 }
 
 function loadPracticeExtensions() {
+  loadStylesheetOnce("dark.css?v=1", "dark.css");
   loadScriptOnce("vocab-extras.js?v=1", "vocab-extras.js")
     .then(() => loadScriptOnce("vocab-direction.js?v=1", "vocab-direction.js"))
     .then(() => loadScriptOnce("practice-data.js?v=1", "practice-data.js"))
@@ -89,6 +98,8 @@ function loadPracticeExtensions() {
     .then(() => loadScriptOnce("learn-v2.js?v=2", "learn-v2.js"))
     .catch(() => {});
 }
+
+loadStylesheetOnce("dark.css?v=1", "dark.css");
 
 const practiceArea = document.querySelector("#app");
 if (practiceArea) {
