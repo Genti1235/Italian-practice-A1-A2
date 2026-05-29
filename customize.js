@@ -102,7 +102,7 @@ function loadScriptOnce(src, marker) {
 }
 
 function loadPracticeExtensions() {
-  loadStylesheetOnce("dark.css?v=1", "dark.css");
+  loadStylesheetOnce("dark.css?v=2", "dark.css");
   loadScriptOnce("vocab-extras.js?v=1", "vocab-extras.js")
     .then(() => loadScriptOnce("vocab-direction.js?v=1", "vocab-direction.js"))
     .then(() => loadScriptOnce("practice-data.js?v=1", "practice-data.js"))
@@ -113,7 +113,7 @@ function loadPracticeExtensions() {
     .catch(() => {});
 }
 
-loadStylesheetOnce("dark.css?v=1", "dark.css");
+loadStylesheetOnce("dark.css?v=2", "dark.css");
 
 document.addEventListener("click", (event) => {
   const categoryButton = event.target.closest("[data-folder]");
