@@ -1,0 +1,330 @@
+:root {
+  color-scheme: dark;
+  --bg: #10161c;
+  --surface: #1b242d;
+  --surface-strong: #242f39;
+  --ink: #e8eef5;
+  --muted: #a5b2bf;
+  --line: #354451;
+  --green: #70db72;
+  --green-dark: #8de891;
+  --red: #ff7b72;
+  --red-soft: #3b2428;
+  --gold: #e3b35c;
+  --gold-soft: #332b1b;
+  --teal: #57c6d1;
+  --teal-soft: #203943;
+  --shadow: 0 18px 50px rgba(0, 0, 0, 0.34);
+}
+
+html,
+body {
+  background: var(--bg);
+}
+
+body {
+  color: var(--ink);
+  background: #10161c;
+}
+
+.sidebar {
+  background: rgba(16, 22, 28, 0.94);
+  border-color: var(--line);
+  backdrop-filter: blur(16px);
+}
+
+.brand-mark {
+  border-color: #5d6b78;
+  color: #11171d;
+}
+
+.brand small,
+.lesson-copy p,
+.tool-panel p,
+.result-panel p,
+.hint,
+.result-score span,
+.vocab-intro p,
+.vocab-select-label,
+.exercise-subtype-card span,
+.practice-tags span,
+.practice-requirements span,
+.multi-blank-grid label,
+.review-list li,
+.focus-list li {
+  color: var(--muted);
+}
+
+.eyebrow,
+.question-kicker {
+  color: var(--green-dark);
+}
+
+.sidebar,
+.stat-tile,
+.mode-button,
+.ghost-button,
+.option-button,
+.chip-button,
+.small-button,
+.lesson-card,
+.tool-panel,
+.question-panel,
+.result-panel,
+.vocab-panel,
+.exercise-subtype-card,
+.empty-state,
+.result-score div,
+.vocab-counts div,
+.word-order-answer,
+.chip-answer,
+.answer-input,
+.vocab-select,
+.practice-textarea,
+select,
+textarea,
+input {
+  background-color: var(--surface);
+  color: var(--ink);
+  border-color: var(--line);
+}
+
+.stat-tile,
+.lesson-header,
+.lesson-node,
+.pill,
+.small-button,
+.result-score div,
+.vocab-counts div,
+.exercise-subtype-card,
+.practice-tags span,
+.practice-requirements span,
+.word-order-answer,
+.chip-answer {
+  background: var(--surface-strong);
+}
+
+.lesson-card.locked {
+  background: #161e25;
+}
+
+.lesson-card.complete {
+  border-color: rgba(112, 219, 114, 0.5);
+}
+
+.lesson-card.complete .lesson-node {
+  background: #233929;
+  color: var(--green-dark);
+}
+
+.lesson-card.locked .lesson-node,
+.lesson-card.locked .lesson-action {
+  background: #25303a;
+  color: var(--muted);
+  border-color: var(--line);
+}
+
+.mode-button span {
+  background: var(--teal-soft);
+  color: var(--teal);
+}
+
+.mode-button.active,
+.active-choice,
+.option-button.selected {
+  border-color: rgba(112, 219, 114, 0.65);
+  background: #233929;
+  color: var(--ink);
+  box-shadow: inset 0 0 0 1px rgba(112, 219, 114, 0.18);
+}
+
+.primary-button,
+.lesson-action {
+  background: var(--green);
+  border-color: var(--green);
+  color: #07130b;
+  box-shadow: 0 10px 24px rgba(112, 219, 114, 0.16);
+}
+
+.ghost-button:hover,
+.primary-button:hover,
+.option-button:hover,
+.chip-button:hover,
+.small-button:hover,
+.mode-button:hover {
+  border-color: #5d7283;
+}
+
+.progress-track {
+  border-color: var(--line);
+  background: #151d24;
+}
+
+.progress-fill {
+  background: linear-gradient(90deg, var(--green), var(--teal));
+}
+
+.focus-list li,
+.review-list li,
+.lesson-header {
+  border-color: var(--line);
+}
+
+.option-button.correct,
+.feedback.good {
+  border-color: rgba(112, 219, 114, 0.6);
+  background: #213729;
+}
+
+.option-button.incorrect,
+.feedback.bad {
+  border-color: rgba(255, 123, 114, 0.6);
+  background: var(--red-soft);
+}
+
+.feedback {
+  background: var(--surface-strong);
+  color: var(--ink);
+  border-color: var(--line);
+}
+
+.answer-input:focus,
+.vocab-select:focus,
+.learn-search:focus,
+.learn-tense-select:focus,
+.practice-textarea:focus {
+  outline: 3px solid rgba(87, 198, 209, 0.22);
+  border-color: var(--teal);
+}
+
+.speaker-button {
+  background: var(--teal-soft);
+  color: var(--teal);
+  border-color: rgba(87, 198, 209, 0.55);
+}
+
+.vocab-counts strong,
+.result-score strong,
+.stat-tile span,
+h1,
+h2,
+h3,
+.prompt {
+  color: var(--ink);
+}
+
+.learn-shell {
+  --learn-bg: #111820;
+  --learn-panel: #1f2933;
+  --learn-panel-2: #2a3641;
+  --learn-line: #3c4d5c;
+  --learn-text: #e8eef5;
+  --learn-muted: #a5b2bf;
+  --learn-blue: #57c6d1;
+  --learn-green: #70db72;
+}
+
+.learn-category-index,
+.learn-category-page {
+  border: 1px solid var(--learn-line);
+  border-radius: 8px;
+  background: #182129;
+  padding: 14px;
+}
+
+.learn-folder-index {
+  max-height: none;
+  overflow: visible;
+  padding-right: 0;
+}
+
+.learn-category-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+  padding: 12px;
+  border: 1px solid var(--learn-line);
+  border-radius: 8px;
+  background: #202a34;
+}
+
+.learn-category-toolbar .ghost-button {
+  min-width: 92px;
+  background: #26323d;
+}
+
+.learn-category-toolbar h3,
+.learn-category-toolbar p {
+  margin-bottom: 2px;
+}
+
+.learn-category-toolbar p:last-child {
+  color: var(--learn-muted);
+}
+
+.learn-folder-panel,
+.learn-verb-list,
+.learn-word-list,
+.learn-detail-card,
+.learn-rule-card,
+.learn-folder-row,
+.learn-word-row,
+.learn-tab,
+.learn-overview-card,
+.learn-search,
+.learn-tense-select {
+  background: #202a34;
+  color: var(--learn-text);
+  border-color: var(--learn-line);
+}
+
+.learn-detail-card,
+.learn-word-list,
+.learn-verb-list,
+.learn-rule-card {
+  background: #1b242d;
+}
+
+.learn-form-table th,
+.learn-conjugation-table th {
+  background: #2d3b47;
+  color: #e3ebf2;
+}
+
+.learn-form-table td,
+.learn-conjugation-table td {
+  background: #222d37;
+}
+
+.learn-form-table th,
+.learn-form-table td,
+.learn-conjugation-table th,
+.learn-conjugation-table td {
+  border-bottom-color: #151d24;
+}
+
+.learn-word-art {
+  background: linear-gradient(135deg, #286f91, #6b657e);
+}
+
+.learn-empty {
+  background: #1b242d;
+  border-color: var(--learn-line);
+}
+
+@media (max-width: 680px) {
+  .learn-category-index,
+  .learn-category-page {
+    padding: 10px;
+  }
+
+  .learn-category-toolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .learn-category-toolbar .ghost-button {
+    width: 100%;
+  }
+}
