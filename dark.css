@@ -224,6 +224,15 @@ h3,
   --learn-green: #70db72;
 }
 
+.learn-shell:has(.learn-category-page) .learn-hero,
+.learn-shell:has(.learn-category-page) .learn-tabs {
+  display: none;
+}
+
+.learn-shell:has(.learn-category-page) {
+  padding-top: 14px;
+}
+
 .learn-category-index,
 .learn-category-page {
   border: 1px solid var(--learn-line);
