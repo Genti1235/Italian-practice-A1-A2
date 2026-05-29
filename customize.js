@@ -20,7 +20,9 @@ function unlockPracticePath() {
 }
 
 function goToPath() {
-  if (typeof window.renderHome === "function") {
+  if (typeof window.renderLessonPath === "function") {
+    window.renderLessonPath();
+  } else if (typeof window.renderHome === "function") {
     window.renderHome();
   } else {
     document.querySelector("#pathMode")?.click();
@@ -103,6 +105,7 @@ function loadScriptOnce(src, marker) {
 
 function loadPracticeExtensions() {
   loadStylesheetOnce("dark.css?v=2", "dark.css");
+  loadStylesheetOnce("dashboard-exam.css?v=1", "dashboard-exam.css");
   loadScriptOnce("vocab-extras.js?v=1", "vocab-extras.js")
     .then(() => loadScriptOnce("vocab-direction.js?v=1", "vocab-direction.js"))
     .then(() => loadScriptOnce("practice-data.js?v=1", "practice-data.js"))
@@ -111,10 +114,12 @@ function loadPracticeExtensions() {
     .then(() => loadScriptOnce("learn-data.js?v=1", "learn-data.js"))
     .then(() => loadScriptOnce("learn-v2.js?v=2", "learn-v2.js"))
     .then(() => loadScriptOnce("learn-modal.js?v=1", "learn-modal.js"))
+    .then(() => loadScriptOnce("dashboard-exam.js?v=1", "dashboard-exam.js"))
     .catch(() => {});
 }
 
 loadStylesheetOnce("dark.css?v=2", "dark.css");
+loadStylesheetOnce("dashboard-exam.css?v=1", "dashboard-exam.css");
 
 document.addEventListener("click", (event) => {
   const categoryButton = event.target.closest("[data-folder]");
