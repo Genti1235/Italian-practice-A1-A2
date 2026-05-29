@@ -110,6 +110,7 @@ function loadPracticeExtensions() {
     .then(() => loadScriptOnce("practice-ui-helpers.js?v=1", "practice-ui-helpers.js"))
     .then(() => loadScriptOnce("learn-data.js?v=1", "learn-data.js"))
     .then(() => loadScriptOnce("learn-v2.js?v=2", "learn-v2.js"))
+    .then(() => loadScriptOnce("learn-modal.js?v=1", "learn-modal.js"))
     .catch(() => {});
 }
 
