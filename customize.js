@@ -50,9 +50,23 @@ function addExitButton() {
   header.append(tools);
 }
 
+let pendingLearnScrollTarget = null;
+
+function scrollPendingLearnTarget() {
+  if (!pendingLearnScrollTarget) return;
+  const selector = pendingLearnScrollTarget === "category" ? ".learn-category-page" : ".learn-category-index";
+  const target = document.querySelector(selector);
+  pendingLearnScrollTarget = null;
+  if (!target) return;
+  window.requestAnimationFrame(() => {
+    target.scrollIntoView({ block: "start" });
+  });
+}
+
 function enhanceCurrentScreen() {
   unlockPracticePath();
   addExitButton();
+  scrollPendingLearnTarget();
 }
 
 let enhancePending = false;
@@ -100,6 +114,13 @@ function loadPracticeExtensions() {
 }
 
 loadStylesheetOnce("dark.css?v=1", "dark.css");
+
+document.addEventListener("click", (event) => {
+  const categoryButton = event.target.closest("[data-folder]");
+  const backButton = event.target.closest("#backToLearnCategories");
+  if (categoryButton) pendingLearnScrollTarget = "category";
+  if (backButton) pendingLearnScrollTarget = "index";
+});
 
 const practiceArea = document.querySelector("#app");
 if (practiceArea) {
