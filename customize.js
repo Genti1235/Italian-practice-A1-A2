@@ -85,6 +85,8 @@ function loadPracticeExtensions() {
     .then(() => loadScriptOnce("practice-data.js?v=1", "practice-data.js"))
     .then(() => loadScriptOnce("practice-sections.js?v=1", "practice-sections.js"))
     .then(() => loadScriptOnce("practice-ui-helpers.js?v=1", "practice-ui-helpers.js"))
+    .then(() => loadScriptOnce("learn-data.js?v=1", "learn-data.js"))
+    .then(() => loadScriptOnce("learn.js?v=1", "learn.js"))
     .catch(() => {});
 }
 
