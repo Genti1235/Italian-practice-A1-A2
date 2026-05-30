@@ -110,6 +110,7 @@ function loadPracticeExtensions() {
   loadScriptOnce("vocab-extras.js?v=1", "vocab-extras.js")
     .then(() => loadScriptOnce("vocab-direction.js?v=1", "vocab-direction.js"))
     .then(() => loadScriptOnce("practice-data.js?v=1", "practice-data.js"))
+    .then(() => loadScriptOnce("practice-data-expanded.js?v=1", "practice-data-expanded.js"))
     .then(() => loadScriptOnce("practice-sections.js?v=1", "practice-sections.js"))
     .then(() => loadScriptOnce("practice-ui-helpers.js?v=1", "practice-ui-helpers.js"))
     .then(() => loadScriptOnce("learn-data.js?v=1", "learn-data.js"))
@@ -121,6 +122,7 @@ function loadPracticeExtensions() {
     .then(() => loadScriptOnce("free-navigation.js?v=1", "free-navigation.js"))
     .then(() => loadScriptOnce("legacy-free-navigation.js?v=1", "legacy-free-navigation.js"))
     .then(() => loadScriptOnce("dialogue-sequence.js?v=1", "dialogue-sequence.js"))
+    .then(() => loadScriptOnce("contextual-back.js?v=1", "contextual-back.js"))
     .catch(() => {});
 }
 
