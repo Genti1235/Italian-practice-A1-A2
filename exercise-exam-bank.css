@@ -19,3 +19,73 @@
 .exam-practice-panel .exam-meta-card strong {
   overflow-wrap: anywhere;
 }
+
+.sequence-list {
+  display: grid;
+  gap: 10px;
+}
+
+.sequence-option {
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 54px;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel-soft);
+  color: var(--text);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.sequence-option:hover:not(:disabled),
+.sequence-option.selected {
+  border-color: rgba(87, 198, 209, 0.75);
+  background: rgba(87, 198, 209, 0.12);
+}
+
+.sequence-option:disabled {
+  cursor: default;
+  opacity: 0.9;
+}
+
+.sequence-rank {
+  display: inline-grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  color: var(--muted);
+  font-weight: 800;
+}
+
+.sequence-option.selected .sequence-rank {
+  border-color: rgba(87, 198, 209, 0.9);
+  background: rgba(87, 198, 209, 0.2);
+  color: var(--text);
+}
+
+.sequence-reset {
+  margin-top: 12px;
+}
+
+.sequence-feedback-list {
+  display: grid;
+  gap: 8px;
+  margin: 10px 0 0;
+  padding-left: 20px;
+}
+
+.sequence-feedback-list li span,
+.sequence-feedback-list li small {
+  display: block;
+}
+
+.sequence-feedback-list li small {
+  color: var(--muted);
+}
