@@ -122,7 +122,7 @@ function loadPracticeExtensions() {
     .then(() => loadScriptOnce("free-navigation.js?v=1", "free-navigation.js"))
     .then(() => loadScriptOnce("legacy-free-navigation.js?v=1", "legacy-free-navigation.js"))
     .then(() => loadScriptOnce("dialogue-sequence.js?v=1", "dialogue-sequence.js"))
-    .then(() => loadScriptOnce("contextual-back.js?v=1", "contextual-back.js"))
+    .then(() => loadScriptOnce("contextual-back.js?v=2", "contextual-back.js"))
     .catch(() => {});
 }
 
