@@ -1,6 +1,8 @@
 (() => {
-  if (window.__ITALIAN_EXAM_META_POLISH__) return;
-  window.__ITALIAN_EXAM_META_POLISH__ = true;
+  if (window.__ITALIAN_EXAM_META_POLISH_V2__) return;
+  window.__ITALIAN_EXAM_META_POLISH_V2__ = true;
+
+  let pending = false;
 
   function updateExamScoreMeta() {
     const panel = document.querySelector(".exam-panel");
@@ -14,13 +16,25 @@
     if (!value || !label) return;
 
     const correct = String(value.textContent || "0/0").split("/")[0] || "0";
-    value.textContent = `${correct}/125`;
-    label.textContent = "score";
+    const nextValue = `${correct}/125`;
+    if (value.textContent !== nextValue) value.textContent = nextValue;
+    if (label.textContent !== "score") label.textContent = "score";
   }
 
-  const app = document.querySelector("#app");
-  if (app) {
-    new MutationObserver(updateExamScoreMeta).observe(app, { childList: true, subtree: true });
+  function scheduleExamMetaUpdate() {
+    if (pending) return;
+    pending = true;
+    window.requestAnimationFrame(() => {
+      pending = false;
+      updateExamScoreMeta();
+    });
   }
-  updateExamScoreMeta();
+
+  document.addEventListener("click", (event) => {
+    if (!event.target.closest("#openFullExam, #examMode, #checkExamExercise, #nextExamExercise, #restartExam, #examAgain")) return;
+    scheduleExamMetaUpdate();
+  });
+
+  window.addEventListener("load", scheduleExamMetaUpdate);
+  scheduleExamMetaUpdate();
 })();
