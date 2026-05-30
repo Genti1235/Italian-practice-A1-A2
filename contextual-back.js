@@ -104,10 +104,17 @@
     }
 
     const reset = document.querySelector("#resetButton");
-    if (reset && button.nextElementSibling !== reset) {
-      topbar.insertBefore(button, reset);
-    } else if (!button.parentElement) {
-      topbar.append(button);
+    const container = reset?.parentElement || topbar;
+    const reference = reset?.parentElement === container ? reset : null;
+
+    if (button.parentElement !== container) {
+      button.remove();
+      container.insertBefore(button, reference);
+      return;
+    }
+
+    if (reference && button.nextElementSibling !== reference) {
+      container.insertBefore(button, reference);
     }
   }
 
