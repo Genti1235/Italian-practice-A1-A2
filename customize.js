@@ -118,6 +118,7 @@ function loadPracticeExtensions() {
     .then(() => loadScriptOnce("dashboard-exam.js?v=1", "dashboard-exam.js"))
     .then(() => loadScriptOnce("dashboard-exam-polish.js?v=2", "dashboard-exam-polish.js"))
     .then(() => loadScriptOnce("exercise-exam-bank.js?v=1", "exercise-exam-bank.js"))
+    .then(() => loadScriptOnce("free-navigation.js?v=1", "free-navigation.js"))
     .catch(() => {});
 }
 
