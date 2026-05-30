@@ -115,7 +115,7 @@ function loadPracticeExtensions() {
     .then(() => loadScriptOnce("learn-v2.js?v=2", "learn-v2.js"))
     .then(() => loadScriptOnce("learn-modal.js?v=1", "learn-modal.js"))
     .then(() => loadScriptOnce("dashboard-exam.js?v=1", "dashboard-exam.js"))
-    .then(() => loadScriptOnce("dashboard-exam-polish.js?v=1", "dashboard-exam-polish.js"))
+    .then(() => loadScriptOnce("dashboard-exam-polish.js?v=2", "dashboard-exam-polish.js"))
     .catch(() => {});
 }
 
