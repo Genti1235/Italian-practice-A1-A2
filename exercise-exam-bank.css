@@ -1,0 +1,21 @@
+.exercise-section-divider {
+  margin-top: 8px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+
+.exercise-section-divider h2 {
+  margin-bottom: 0;
+}
+
+.exam-bank-card {
+  border-color: rgba(87, 198, 209, 0.42);
+}
+
+.exam-bank-card:hover {
+  border-color: rgba(87, 198, 209, 0.72);
+}
+
+.exam-practice-panel .exam-meta-card strong {
+  overflow-wrap: anywhere;
+}
