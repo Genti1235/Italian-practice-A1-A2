@@ -106,7 +106,7 @@ function loadScriptOnce(src, marker) {
 function loadPracticeExtensions() {
   loadStylesheetOnce("dark.css?v=2", "dark.css");
   loadStylesheetOnce("dashboard-exam.css?v=1", "dashboard-exam.css");
-  loadStylesheetOnce("exercise-exam-bank.css?v=1", "exercise-exam-bank.css");
+  loadStylesheetOnce("exercise-exam-bank.css?v=2", "exercise-exam-bank.css");
   loadScriptOnce("vocab-extras.js?v=1", "vocab-extras.js")
     .then(() => loadScriptOnce("vocab-direction.js?v=1", "vocab-direction.js"))
     .then(() => loadScriptOnce("practice-data.js?v=1", "practice-data.js"))
@@ -120,12 +120,13 @@ function loadPracticeExtensions() {
     .then(() => loadScriptOnce("exercise-exam-bank.js?v=1", "exercise-exam-bank.js"))
     .then(() => loadScriptOnce("free-navigation.js?v=1", "free-navigation.js"))
     .then(() => loadScriptOnce("legacy-free-navigation.js?v=1", "legacy-free-navigation.js"))
+    .then(() => loadScriptOnce("dialogue-sequence.js?v=1", "dialogue-sequence.js"))
     .catch(() => {});
 }
 
 loadStylesheetOnce("dark.css?v=2", "dark.css");
 loadStylesheetOnce("dashboard-exam.css?v=1", "dashboard-exam.css");
-loadStylesheetOnce("exercise-exam-bank.css?v=1", "exercise-exam-bank.css");
+loadStylesheetOnce("exercise-exam-bank.css?v=2", "exercise-exam-bank.css");
 
 document.addEventListener("click", (event) => {
   const categoryButton = event.target.closest("[data-folder]");
